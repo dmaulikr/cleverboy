@@ -19,6 +19,9 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
     CCLabelTTF * _num2;
     CCLabelTTF * _num3;
     CCLabelTTF * _num4;
+    CCLabelTTF * _gameOver;
+    CCButton * _restart;
+    CCButton * _quit;
     
     int levelFilter;
     int levelAddPoint;
@@ -32,6 +35,7 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
     // best score to show
     CCLabelTTF * _bestScore;
     int bestScore;
+    int originBestScore;
     
     // level
     CCLabelTTF * _level;
@@ -53,9 +57,18 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
 - (void) didLoadFromCCB {
     NSLog(@"game scene load success");
     self.userInteractionEnabled = TRUE;
+    _gameOver.visible = NO;
+    _restart.visible = NO;
+    _restart.enabled = NO;
+    _quit.visible = NO;
+    _quit.enabled = NO;
+    _bestScore.visible = NO;
     
     // set best score
+    //[Utils setIntValueByKey:BEST_SCORE_KEY andValue:0];
+    
     bestScore = [Utils getIntValueBykey:BEST_SCORE_KEY];
+    originBestScore = bestScore;
     [self updateBestScore:bestScore];
     [self updateScore:0];
     [self updateLevel:1];
@@ -95,9 +108,6 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
     {
         if (CGRectContainsPoint(station.boundingBox, location) && [station number] == correctAnswer)
         {
-            [_numbers removeObject:station];
-            [station removeFromParent];
-            
             [self generateEffect:@"CorrectEffect" position:station.position];
             score = score + levelAddPoint;
             [self updateScore:score];
@@ -108,27 +118,32 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
                 [self upgrade];
             }
             [self updateNumberByLevel:level];
-            break;
-        } else if (CGRectContainsPoint(station.boundingBox, location)) {
+            
             [_numbers removeObject:station];
             [station removeFromParent];
-            
+            break;
+        } else if (CGRectContainsPoint(station.boundingBox, location)) {
             [self generateEffect:@"FailEffect" position:station.position];
             score = score - levelAddPoint;
             [self updateScore:score];
+            
+            [self updateNumberByLevel:level];
+            [_numbers removeObject:station];
+            [station removeFromParent];
             break;
         }
     }
 }
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair answer:(Answer *)answer ground:(CCNode *)ground {
-    [_numbers removeObject:answer];
-    [answer removeFromParent];
-    
     if ([answer number] == correctAnswer) {
         [self generateEffect:@"FailEffect" position:answer.position];
         [self updateScore:score - 1];
+        [self updateNumberByLevel:level];
     }
+    
+    [_numbers removeObject:answer];
+    [answer removeFromParent];
     return TRUE;
 }
 
@@ -145,11 +160,13 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
 
 - (void) updateScore:(int)uscore {
     score = uscore;
-    if (score < 0) {
-        [self setGameOver];
-    }
     
     _score.string = [NSString stringWithFormat:@"Score: %d", score];
+    
+    if (score < 0) {
+        [self setGameOver];
+        return;
+    }
 
 }
 
@@ -159,10 +176,11 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
     // update user pref
     [Utils setIntValueByKey:BEST_SCORE_KEY andValue:bestScore];
     
-    _bestScore.string = [NSString stringWithFormat:@"Self best: %d", bestScore];
+    _bestScore.string = [NSString stringWithFormat:@"Best Updated: %d", bestScore];
 }
 
 - (void) updateNumberByLevel:(int)level {
+    if (gameOver == YES) return;
     num1 = random() % levelFilter;
     num2 = random() % levelFilter;
     num3 = random() % levelFilter;
@@ -191,7 +209,7 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
 
 - (void)generateEffect:(NSString *)type position:(CGPoint)position {
     CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:type];
-    explosion.autoRemoveOnFinish = TRUE;
+    explosion.autoRemoveOnFinish = YES;
     explosion.position = position;
 
     [_physicsNode addChild:explosion];
@@ -200,7 +218,24 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
 -  (void)setGameOver {
     gameOver = YES;
     
-    self.userInteractionEnabled = FALSE;
+    _gameOver.visible = YES;
+    _restart.visible = YES;
+    _restart.enabled = YES;
+    _quit.visible = YES;
+    _quit.enabled = YES;
+    if (originBestScore < bestScore) {
+        _bestScore.visible = YES;
+    }
+    self.userInteractionEnabled = NO;
 }
 
+- (void)restart {
+    CCScene *scene = [CCBReader loadAsScene:@"GameScene"];
+    [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+
+- (void)quit {
+    [[CCDirector sharedDirector] end];
+}
 @end

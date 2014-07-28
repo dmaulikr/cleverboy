@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		<key>ccbResources/bg.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1357, 1}, {512, 378}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {512, 378}}</string>
+			<key>sourceSize</key>
+			<string>{512, 378}</string>
+		</dict>
+		<key>ccbResources/ccbButtonHighlighted.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2022, 24}, {24, 21}}</string>
+			<key>offset</key>
+			<string>{0, -1}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 3}, {24, 21}}</string>
+			<key>sourceSize</key>
+			<string>{24, 24}</string>
+		</dict>
+		<key>ccbResources/ccbButtonNormal.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2022, 1}, {24, 21}}</string>
+			<key>offset</key>
+			<string>{0, -1}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 3}, {24, 21}}</string>
+			<key>sourceSize</key>
+			<string>{24, 24}</string>
+		</dict>
+		<key>ccbResources/ccbParticleFire.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1996, 185}, {29, 29}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{1, 1}, {29, 29}}</string>
+			<key>sourceSize</key>
+			<string>{32, 32}</string>
+		</dict>
+		<key>ccbResources/ccbParticleMagic.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1996, 151}, {32, 32}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {32, 32}}</string>
+			<key>sourceSize</key>
+			<string>{32, 32}</string>
+		</dict>
+		<key>ccbResources/ccbParticleSmoke.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1937, 151}, {57, 57}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{4, 4}, {57, 57}}</string>
+			<key>sourceSize</key>
+			<string>{64, 64}</string>
+		</dict>
+		<key>ccbResources/ccbParticleSnow.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1937, 210}, {29, 29}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{1, 1}, {29, 29}}</string>
+			<key>sourceSize</key>
+			<string>{32, 32}</string>
+		</dict>
+		<key>ccbResources/ccbParticleStars.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1871, 217}, {29, 29}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{1, 1}, {29, 29}}</string>
+			<key>sourceSize</key>
+			<string>{32, 32}</string>
+		</dict>
+		<key>ccbResources/ccbSliderBgHighlighted.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2022, 91}, {26, 8}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<true/>
+			<key>sourceColorRect</key>
+			<string>{{1, 1}, {26, 8}}</string>
+			<key>sourceSize</key>
+			<string>{28, 10}</string>
+		</dict>
+		<key>ccbResources/ccbSliderBgNormal.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2032, 91}, {26, 8}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<true/>
+			<key>sourceColorRect</key>
+			<string>{{1, 1}, {26, 8}}</string>
+			<key>sourceSize</key>
+			<string>{28, 10}</string>
+		</dict>
+		<key>ccbResources/ccbSliderHandle.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2022, 47}, {22, 22}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{1, 1}, {22, 22}}</string>
+			<key>sourceSize</key>
+			<string>{24, 24}</string>
+		</dict>
+		<key>ccbResources/ccbTextField.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2022, 71}, {18, 18}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{1, 1}, {18, 18}}</string>
+			<key>sourceSize</key>
+			<string>{20, 20}</string>
+		</dict>
+		<key>ccbResources/nature-image.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 1}, {1354, 675}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {1354, 675}}</string>
+			<key>sourceSize</key>
+			<string>{1354, 675}</string>
+		</dict>
+		<key>ccbResources/round0.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1871, 151}, {64, 64}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {64, 64}}</string>
+			<key>sourceSize</key>
+			<string>{64, 64}</string>
+		</dict>
+		<key>ccbResources/round1.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1871, 1}, {149, 148}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {149, 148}}</string>
+			<key>sourceSize</key>
+			<string>{149, 148}</string>
+		</dict>
+		<key>ccbResources/round2.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1357, 664}, {203, 203}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {203, 203}}</string>
+			<key>sourceSize</key>
+			<string>{203, 203}</string>
+		</dict>
+		<key>ccbResources/round3.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1659, 381}, {298, 298}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{1, 0}, {298, 298}}</string>
+			<key>sourceSize</key>
+			<string>{300, 298}</string>
+		</dict>
+		<key>ccbResources/round4.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1357, 381}, {300, 281}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {300, 281}}</string>
+			<key>sourceSize</key>
+			<string>{300, 281}</string>
+		</dict>
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>format</key>
+		<integer>2</integer>
+		<key>size</key>
+		<string>{2048, 2048}</string>
+		<key>textureFileName</key>
+		<string>ccbResources.png</string>
+	</dict>
+</dict>
+</plist>
