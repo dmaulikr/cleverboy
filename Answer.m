@@ -35,7 +35,9 @@ static const double PERCENT = 0.3;
 }
 
 + (int)generateNumber:(int)center {
-    if (center < 5) {
+    if (center < 3) {
+        return rand() % 6;
+    }else if (center < 6) {
         return rand() % 10;
     } else {
         int value = center + rand() % (int)(center * 2 * PERCENT) - (int)(center * PERCENT);

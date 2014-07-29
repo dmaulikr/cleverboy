@@ -13,6 +13,8 @@
 
 static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
 
+static int MAX_LEVEL = 4;
+
 @implementation GameScene {
     // numbers to show
     CCLabelTTF * _num1;
@@ -50,6 +52,7 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
     
     // time
     NSTimeInterval sinceTime;
+    NSTimeInterval gapTime;
     
     BOOL gameOver;
 }
@@ -73,7 +76,6 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
     [self updateScore:0];
     [self updateLevel:1];
 
-
     [self updateNumberByLevel:level];
     
     // for collision
@@ -92,7 +94,7 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
     
     sinceTime += delta;
     
-    if (sinceTime > 0.5f) {
+    if (sinceTime > gapTime) {
         [self addAnswerObject];
         sinceTime = 0;
     }
@@ -195,10 +197,13 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
 }
 
 - (void)updateLevel:(int)newLevel {
+    if (level > MAX_LEVEL) return;
+    
+    gapTime = 0.5f - (newLevel - 1) * 0.1f;
     level = newLevel;
-    levelFilter = [Configure getNumberByLevel:level];
-    levelThreshold = 2 * levelFilter;
-    levelAddPoint = [Configure getNumberByLevel:level - 1];
+    levelFilter = 3;//[Configure getNumberByLevel:level];
+    levelThreshold = newLevel * 10;//2 * levelFilter;
+    levelAddPoint = 1;//[Configure getNumberByLevel:level - 1];
     
     _level.string = [NSString stringWithFormat:@"Level %d", level];
 }
@@ -236,6 +241,8 @@ static NSString * BEST_SCORE_KEY = @"BEST_SCORE_KEY";
 
 
 - (void)quit {
-    [[CCDirector sharedDirector] end];
+    CCScene *scene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:scene];
+    //[[CCDirector sharedDirector] end];
 }
 @end
